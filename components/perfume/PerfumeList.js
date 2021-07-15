@@ -11,10 +11,10 @@ import PerfumeItem from "./PerfumeItem";
 //stores
 import perfumeStore from "../../stores/perfumeStore";
 
-const PerfumeList = ({ perfumes }) => {
+const PerfumeList = ({ perfumes, navigation }) => {
   if (perfumeStore.loading) return <Spinner />;
   const perfumesList = perfumes.map((perfume) => (
-    <PerfumeItem perfume={perfume} key={perfume.id} />
+    <PerfumeItem perfume={perfume} key={perfume.id} navigation={navigation} />
   ));
   return (
     <ListWrapper>

@@ -15,10 +15,10 @@ import shopStore from "../../stores/shopStore";
 //styles
 import { ListWrapper } from "./styles";
 
-const ShopList = () => {
+const ShopList = ({ navigation }) => {
   if (shopStore.loading) return <Spinner />;
   const shops = shopStore.shops.map((shop) => (
-    <ShopItem shop={shop} key={shop.id} />
+    <ShopItem shop={shop} key={shop.id} navigation={navigation} />
   ));
 
   return (

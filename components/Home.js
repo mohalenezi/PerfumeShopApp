@@ -8,7 +8,7 @@ import {
   ButtonStyling,
 } from "../styles";
 
-const Home = () => {
+const Home = ({ navigation }) => {
   return (
     <HomeBackground
       source={{
@@ -20,8 +20,8 @@ const Home = () => {
           <Title>The Scent</Title>
         </HomeUpText>
         <BottomStyling>
-          <ButtonStyling onPress={() => alert("Take me to the shops dude")}>
-            Click here to skip
+          <ButtonStyling onPress={() => navigation.navigate("ShopList")}>
+            Let the Journey Begin
           </ButtonStyling>
         </BottomStyling>
       </OverlayContainer>

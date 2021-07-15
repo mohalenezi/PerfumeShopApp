@@ -5,9 +5,11 @@ import { Text, Image } from "react-native";
 //native-base
 import { List } from "native-base";
 
-const PerfumeItem = ({ perfume }) => {
+const PerfumeItem = ({ perfume, navigation }) => {
   return (
-    <List.Item>
+    <List.Item
+      onPress={() => navigation.navigate("PerfumeDetail", { perfume: perfume })}
+    >
       <Image
         source={{ uri: perfume.image }}
         style={{ width: 100, height: 100 }}

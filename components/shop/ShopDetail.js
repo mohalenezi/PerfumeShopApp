@@ -16,9 +16,10 @@ import { ShopDetailTitle, ShopDetailImage, ShopDetailWrapper } from "./styles";
 
 import { observer } from "mobx-react";
 
-const ShopDetail = () => {
+const ShopDetail = ({ navigation, route }) => {
+  const { shop } = route.params;
+
   if (shopStore.loading) return <Spinner />;
-  const shop = shopStore.shops[1];
 
   const perfumes = shop.perfumes.map((perfume) =>
     perfumeStore.getPerfumeById(perfume.id)
@@ -30,7 +31,7 @@ const ShopDetail = () => {
         <ShopDetailImage source={{ uri: shop.image }} />
         <ShopDetailTitle>{shop.name}</ShopDetailTitle>
       </ShopDetailWrapper>
-      <PerfumeList perfumes={perfumes} />
+      <PerfumeList perfumes={perfumes} navigation={navigation} />
     </>
   );
 };
