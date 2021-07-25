@@ -6,6 +6,8 @@ import Home from "../Home";
 import ShopList from "../shop/ShopList";
 import ShopDetail from "../shop/ShopDetail";
 import PerfumeDetail from "../perfume/PerfumeDetail";
+import CartButton from "../cart/buttons/CartButton";
+import CartList from "../cart/CartList";
 
 const Stack = createStackNavigator();
 
@@ -35,6 +37,7 @@ export default RootNavigator = () => {
         component={ShopList}
         options={{
           title: "Choose your Favourite Shop",
+          headerRight: () => <CartButton />,
         }}
       />
       <Stack.Screen
@@ -44,6 +47,7 @@ export default RootNavigator = () => {
           const { shop } = route.params;
           return {
             title: shop.name,
+            headerRight: () => <CartButton />,
           };
         }}
       />
@@ -54,7 +58,16 @@ export default RootNavigator = () => {
           const { perfume } = route.params;
           return {
             title: perfume.name,
+            headerRight: () => <CartButton />,
           };
+        }}
+      />
+      <Stack.Screen
+        name="CartList"
+        component={CartList}
+        options={{
+          title: "pay ya habebi",
+          headerRight: () => <CartButton />,
         }}
       />
     </Stack.Navigator>
