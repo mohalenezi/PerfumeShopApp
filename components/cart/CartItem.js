@@ -11,7 +11,7 @@ const CartItem = ({ item }) => {
       <Text>
         {item.price} KD X {item.quantity}
       </Text>
-      <TotalPrice>{item.price * item.quantity}</TotalPrice>
+      <TotalPrice>{item.price * item.quantity} KD</TotalPrice>
     </List.Item>
   );
 };
