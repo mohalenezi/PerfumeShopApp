@@ -11,6 +11,9 @@ import CartItem from "./CartItem";
 //observer
 import { observer } from "mobx-react";
 
+//styles
+import { CheckoutButton, CheckoutButtonText } from "./styles";
+
 const CartList = () => {
   if (perfumeStore.loading) return <Spinner />;
   const cartList = cartStore.items
@@ -19,7 +22,14 @@ const CartList = () => {
       quantity: item.quantity,
     }))
     .map((item) => <CartItem item={item} key={item.id} />);
-  return <List>{cartList}</List>;
+  return (
+    <>
+      <List>{cartList}</List>
+      <CheckoutButton onPress={cartStore.checkout}>
+        <CheckoutButtonText>Checkout</CheckoutButtonText>
+      </CheckoutButton>
+    </>
+  );
 };
 
 export default observer(CartList);

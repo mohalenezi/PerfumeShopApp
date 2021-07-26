@@ -29,6 +29,17 @@ class CartStore {
     await AsyncStorage.setItem("cart", JSON.stringify(this.items));
   };
 
+  deleteFromCart = async (itemId) => {
+    this.items = this.items.filter((item) => item.perfumeId !== itemId);
+    await AsyncStorage.setItem("cart", JSON.stringify(this.items));
+  };
+
+  checkout = async () => {
+    this.items = [];
+    await AsyncStorage.removeItem("cart");
+    alert("Done payment");
+  };
+
   get totalQuantity() {
     let total = 0;
     this.items.forEach((item) => (total += item.quantity));
