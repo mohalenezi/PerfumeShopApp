@@ -16,7 +16,7 @@ export const CartButtonStyled = styled(FontAwesome5)`
 
 export const SignOutButtonStyled = styled(FontAwesome)`
   color: ${(props) => props.theme.red};
-  margin-right: 9px;
+  margin-left: 40px;
 `;
 
 export const TrashIcon = styled(FontAwesome5)`

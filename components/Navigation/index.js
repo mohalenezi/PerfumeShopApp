@@ -8,6 +8,9 @@ import ShopDetail from "../shop/ShopDetail";
 import PerfumeDetail from "../perfume/PerfumeDetail";
 import CartButton from "../cart/buttons/CartButton";
 import CartList from "../cart/CartList";
+import Signup from "../authentication/Signup";
+import Signin from "../authentication/Signin";
+import SignOutButton from "../cart/buttons/SignOutButton";
 
 const Stack = createStackNavigator();
 
@@ -37,6 +40,7 @@ export default RootNavigator = () => {
         component={ShopList}
         options={{
           title: "Choose your Favourite Shop",
+          headerLeft: () => <SignOutButton />,
           headerRight: () => <CartButton />,
         }}
       />
@@ -47,6 +51,7 @@ export default RootNavigator = () => {
           const { shop } = route.params;
           return {
             title: shop.name,
+            headerLeft: () => <SignOutButton />,
             headerRight: () => <CartButton />,
           };
         }}
@@ -58,6 +63,7 @@ export default RootNavigator = () => {
           const { perfume } = route.params;
           return {
             title: perfume.name,
+            headerLeft: () => <SignOutButton />,
             headerRight: () => <CartButton />,
           };
         }}
@@ -67,7 +73,22 @@ export default RootNavigator = () => {
         component={CartList}
         options={{
           title: "pay ya habebi",
+          headerLeft: () => <SignOutButton />,
           headerRight: () => <CartButton />,
+        }}
+      />
+      <Stack.Screen
+        name="Signin"
+        component={Signin}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="Signup"
+        component={Signup}
+        options={{
+          headerShown: false,
         }}
       />
     </Stack.Navigator>
